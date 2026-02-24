@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ccm7gw51acl1p"]
+
+[ext_resource type="Script" uid="uid://dc8ccsclq82mw" path="res://scenes/chunks/ChunkBase.gd" id="1_j5dfh"]
+
+[node name="ChunkBase" type="Node2D" unique_id=1153055874]
+script = ExtResource("1_j5dfh")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=276429331]
+
+[node name="CoinSpawn" type="Marker2D" parent="Node2D" unique_id=1461672919]
+
+[node name="HPSpawn" type="Marker2D" parent="Node2D" unique_id=472800120]
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1671568339]

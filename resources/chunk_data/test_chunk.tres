@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChunkData" format=3 uid="uid://cjb0cel41avqh"]
+
+[ext_resource type="PackedScene" uid="uid://cfd3wtjjnp8an" path="res://scenes/chunks/test_chunk.tscn" id="1_erwn7"]
+[ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="1_n132d"]
+
+[resource]
+script = ExtResource("1_n132d")
+chunk_name = "Test Chunk"
+scene = ExtResource("1_erwn7")
+metadata/_custom_type_script = "uid://ckcq71v8b3nvc"

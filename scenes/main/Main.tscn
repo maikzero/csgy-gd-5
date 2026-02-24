@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bibqvvprm1edq"]
+
+[ext_resource type="Script" uid="uid://lrut3161qrwl" path="res://scripts/managers/GameManager.gd" id="1_q24mn"]
+[ext_resource type="PackedScene" uid="uid://cpv7ht2w6mjjr" path="res://scenes/player/player.tscn" id="2_gyg6b"]
+[ext_resource type="PackedScene" uid="uid://ypqcmg7tal2y" path="res://scenes/ui/UI.tscn" id="3_dc040"]
+[ext_resource type="Script" uid="uid://dkde0roy4gt4o" path="res://scenes/chunks/ChunkGenerator.gd" id="4_gyg6b"]
+[ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="5_1rhdn"]
+[ext_resource type="Resource" uid="uid://cjb0cel41avqh" path="res://resources/chunk_data/test_chunk.tres" id="5_dc040"]
+[ext_resource type="Resource" uid="uid://dxl76gwknkk0y" path="res://resources/chunk_data/hop_small.tres" id="7_sjxhf"]
+
+[node name="Main" type="Node2D" unique_id=290512375]
+
+[node name="GameManager" type="Node" parent="." unique_id=1425946312]
+script = ExtResource("1_q24mn")
+
+[node name="World" type="Node2D" parent="." unique_id=862181611]
+
+[node name="Player" parent="." unique_id=758424816 instance=ExtResource("2_gyg6b")]
+
+[node name="UI" parent="." unique_id=1034848365 instance=ExtResource("3_dc040")]
+
+[node name="ChunkGenerator" type="Node" parent="." unique_id=1351568524]
+script = ExtResource("4_gyg6b")
+chunk_pool = Array[ExtResource("5_1rhdn")]([ExtResource("5_dc040"), ExtResource("7_sjxhf")])

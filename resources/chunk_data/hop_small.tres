@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ChunkData" format=3 uid="uid://dxl76gwknkk0y"]
+
+[ext_resource type="PackedScene" uid="uid://b0cijof6wteqe" path="res://scenes/chunks/chunk_hop_small.tscn" id="1_64jes"]
+[ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="1_u00sm"]
+
+[resource]
+script = ExtResource("1_u00sm")
+chunk_name = "Small Hop"
+scene = ExtResource("1_64jes")
+difficulty = 2
+chunk_type = "Gap"
+requires_double_jump = true
+metadata/_custom_type_script = "uid://ckcq71v8b3nvc"

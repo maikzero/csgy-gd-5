@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cfd3wtjjnp8an"]
+
+[ext_resource type="Script" uid="uid://dc8ccsclq82mw" path="res://scenes/chunks/ChunkBase.gd" id="1_g35tt"]
+[ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="2_mg16j"]
+
+[sub_resource type="Resource" id="Resource_gy8t6"]
+script = ExtResource("2_mg16j")
+chunk_name = "test_chunk"
+metadata/_custom_type_script = "uid://ckcq71v8b3nvc"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0mtm"]
+size = Vector2(1994.5, 106)
+
+[node name="TestChunk" type="Node2D" unique_id=1421911182]
+position = Vector2(6, 493)
+script = ExtResource("1_g35tt")
+chunk_data = SubResource("Resource_gy8t6")
+chunk_width = null
+background_color = null
+metadata/_custom_type_script = "uid://dc8ccsclq82mw"
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1400084016]
+
+[node name="ColorRect" type="ColorRect" parent="Visuals" unique_id=996910112]
+offset_right = 2000.0
+offset_bottom = 100.0
+color = Color(0.8462826, 0.5661948, 0.14531782, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=2144399343]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=632853955]
+position = Vector2(999.75, 54)
+shape = SubResource("RectangleShape2D_h0mtm")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=612963395]
+position = Vector2(1026, -144)
+
+[node name="CoinSpawn" type="Marker2D" parent="SpawnPoints" unique_id=1442799688]
+position = Vector2(-11, 16)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1916422907]
+rect = Rect2(0, -500, 2000, 1000)
+show_rect = false

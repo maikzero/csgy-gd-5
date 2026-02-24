@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b0cijof6wteqe"]
+
+[ext_resource type="Script" uid="uid://dc8ccsclq82mw" path="res://scenes/chunks/ChunkBase.gd" id="1_uuuhy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4fbn"]
+size = Vector2(808.5, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbf04"]
+size = Vector2(804, 47)
+
+[node name="chunk_hop_small" type="Node2D" unique_id=684014414]
+script = ExtResource("1_uuuhy")
+metadata/_custom_type_script = "uid://dc8ccsclq82mw"
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1181599090]
+
+[node name="left" type="ColorRect" parent="Visuals" unique_id=1489992254]
+custom_minimum_size = Vector2(800, 5)
+offset_left = 8.0
+offset_top = 532.0
+offset_right = 808.0
+offset_bottom = 572.0
+
+[node name="right" type="ColorRect" parent="Visuals" unique_id=1851492627]
+offset_left = 1208.0
+offset_top = 532.0
+offset_right = 2008.0
+offset_bottom = 582.0
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=2134097415]
+
+[node name="left" type="CollisionShape2D" parent="Collision" unique_id=628351393]
+position = Vector2(1610.25, 556)
+shape = SubResource("RectangleShape2D_o4fbn")
+
+[node name="right" type="CollisionShape2D" parent="Collision" unique_id=1623362576]
+position = Vector2(406, 551.5)
+shape = SubResource("RectangleShape2D_bbf04")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=242613114]
+position = Vector2(377, 457)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1462830742]
+rect = Rect2(0, -500, 2000, 1000)
+show_rect = false
