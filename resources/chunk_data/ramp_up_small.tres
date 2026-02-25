@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ChunkData" format=3 uid="uid://dkyaun8qungm6"]
+
+[ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="1_l0hib"]
+[ext_resource type="PackedScene" uid="uid://rjbt4k07wxts" path="res://scenes/chunks/chunk_ramp.tscn" id="1_vi067"]
+
+[resource]
+script = ExtResource("1_l0hib")
+chunk_name = "ramp_up"
+scene = ExtResource("1_vi067")
+metadata/_custom_type_script = "uid://ckcq71v8b3nvc"

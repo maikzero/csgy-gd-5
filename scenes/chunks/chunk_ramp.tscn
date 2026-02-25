@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://rjbt4k07wxts"]
+
+[ext_resource type="Script" uid="uid://dc8ccsclq82mw" path="res://scenes/chunks/ChunkBase.gd" id="1_otyjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otyjq"]
+size = Vector2(1198.1208, 48)
+
+[node name="chunk_ramp" type="Node2D" unique_id=684014414]
+script = ExtResource("1_otyjq")
+chunk_width = 1200.0
+left_connection_height = 500.0
+right_connection_height = 400.0
+metadata/_custom_type_script = "uid://dc8ccsclq82mw"
+
+[node name="Visuals" type="Node2D" parent="." unique_id=1181599090]
+
+[node name="left" type="ColorRect" parent="Visuals" unique_id=1489992254]
+custom_minimum_size = Vector2(800, 5)
+offset_left = 2.0
+offset_top = 623.0
+offset_right = 1202.0
+offset_bottom = 663.0
+rotation = -0.1308997
+metadata/_edit_use_anchors_ = true
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=2134097415]
+
+[node name="ramp" type="CollisionShape2D" parent="Collision" unique_id=1037569934]
+position = Vector2(601.71967, 571.1686)
+rotation = -0.1308997
+shape = SubResource("RectangleShape2D_otyjq")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=242613114]
+
+[node name="Coin" type="Marker2D" parent="SpawnPoints" unique_id=1769543997]
+position = Vector2(590, 449)
+
+[node name="Coin2" type="Marker2D" parent="SpawnPoints" unique_id=341947996]
+position = Vector2(646, 425)
+
+[node name="Coin3" type="Marker2D" parent="SpawnPoints" unique_id=1061444957]
+position = Vector2(715, 415)
+
+[node name="Coin4" type="Marker2D" parent="SpawnPoints" unique_id=1836605621]
+position = Vector2(783, 420)
+
+[node name="Coin5" type="Marker2D" parent="SpawnPoints" unique_id=96771589]
+position = Vector2(864, 436)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1462830742]
+rect = Rect2(0, -500, 2000, 1000)
+show_rect = false

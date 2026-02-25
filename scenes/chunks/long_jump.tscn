@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://hbnc554nl50h"]
+
+[ext_resource type="Script" uid="uid://dc8ccsclq82mw" path="res://scenes/chunks/ChunkBase.gd" id="1_ctood"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctood"]
+size = Vector2(506, 37)
+
+[node name="ChunkBase" type="Node2D" unique_id=1346781733]
+script = ExtResource("1_ctood")
+left_connection_height = 500.0
+right_connection_height = 500.0
+metadata/_custom_type_script = "uid://dc8ccsclq82mw"
+
+[node name="Visuals" type="Node2D" parent="." unique_id=2107080120]
+
+[node name="left" type="ColorRect" parent="Visuals" unique_id=1019903346]
+offset_top = 500.0
+offset_right = 500.0
+offset_bottom = 540.0
+color = Color(1, 0.047058824, 0.10980392, 1)
+
+[node name="right" type="ColorRect" parent="Visuals" unique_id=1641167356]
+offset_left = 1500.0
+offset_top = 500.0
+offset_right = 2000.0
+offset_bottom = 540.0
+color = Color(1, 0.15686275, 0.2784314, 1)
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=1544102499]
+
+[node name="left" type="CollisionShape2D" parent="Collision" unique_id=444886504]
+position = Vector2(256, 519.5)
+shape = SubResource("RectangleShape2D_ctood")
+
+[node name="right" type="CollisionShape2D" parent="Collision" unique_id=682444332]
+position = Vector2(1753, 517)
+shape = SubResource("RectangleShape2D_ctood")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1219194475]
+
+[node name="Coin" type="Marker2D" parent="SpawnPoints" unique_id=2108616733]
+position = Vector2(590, 449)
+
+[node name="Coin2" type="Marker2D" parent="SpawnPoints" unique_id=1754357884]
+position = Vector2(685, 396)
+
+[node name="Coin3" type="Marker2D" parent="SpawnPoints" unique_id=1375602568]
+position = Vector2(871, 367)
+
+[node name="Coin4" type="Marker2D" parent="SpawnPoints" unique_id=1699392563]
+position = Vector2(1093, 375)
+
+[node name="Coin5" type="Marker2D" parent="SpawnPoints" unique_id=1317733909]
+position = Vector2(1369, 415)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1593029289]
+rect = Rect2(0, -500, 2000, 1000)
+show_rect = false

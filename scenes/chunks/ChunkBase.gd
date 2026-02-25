@@ -156,8 +156,9 @@ func can_connect_to(next_chunk: ChunkBase) -> bool:
 		return false
 	
 	# Check height difference
+	var height_diff = (right_connection_height - next_chunk.left_connection_height)
 	#var height_diff = abs(right_connection_height - next_chunk.left_connection_height)
-	var height_diff = next_chunk.left_connection_height - right_connection_height
+	#var height_diff = next_chunk.left_connection_height - right_connection_height
 	if height_diff > max_height_difference:
 		return false
 	

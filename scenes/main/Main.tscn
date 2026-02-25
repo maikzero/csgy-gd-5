@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="5_1rhdn"]
 [ext_resource type="Resource" uid="uid://cjb0cel41avqh" path="res://resources/chunk_data/test_chunk.tres" id="5_dc040"]
 [ext_resource type="Resource" uid="uid://dxl76gwknkk0y" path="res://resources/chunk_data/hop_small.tres" id="7_sjxhf"]
+[ext_resource type="Resource" uid="uid://dkyaun8qungm6" path="res://resources/chunk_data/ramp_up_small.tres" id="8_ko0rf"]
+[ext_resource type="Resource" uid="uid://cnnwgubecrwmo" path="res://resources/chunk_data/long_jump.tres" id="9_ostsq"]
 
 [node name="Main" type="Node2D" unique_id=290512375]
 
@@ -21,4 +23,4 @@ script = ExtResource("1_q24mn")
 
 [node name="ChunkGenerator" type="Node" parent="." unique_id=1351568524]
 script = ExtResource("4_gyg6b")
-chunk_pool = Array[ExtResource("5_1rhdn")]([ExtResource("5_dc040"), ExtResource("7_sjxhf")])
+chunk_pool = Array[ExtResource("5_1rhdn")]([ExtResource("5_dc040"), ExtResource("7_sjxhf"), ExtResource("8_ko0rf"), ExtResource("9_ostsq")])

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ChunkData" format=3 uid="uid://cnnwgubecrwmo"]
+
+[ext_resource type="Script" uid="uid://ckcq71v8b3nvc" path="res://resources/chunk_data/ChunkData.gd" id="1_jrcl8"]
+[ext_resource type="PackedScene" uid="uid://hbnc554nl50h" path="res://scenes/chunks/long_jump.tscn" id="1_q6tpd"]
+
+[resource]
+script = ExtResource("1_jrcl8")
+chunk_name = "long jump"
+scene = ExtResource("1_q6tpd")
+min_speed = 500.0
+metadata/_custom_type_script = "uid://ckcq71v8b3nvc"

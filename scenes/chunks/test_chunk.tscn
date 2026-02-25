@@ -15,20 +15,24 @@ size = Vector2(1994.5, 106)
 position = Vector2(6, 493)
 script = ExtResource("1_g35tt")
 chunk_data = SubResource("Resource_gy8t6")
+left_connection_height = 600.0
+right_connection_height = 600.0
 metadata/_custom_type_script = "uid://dc8ccsclq82mw"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1400084016]
 
 [node name="ColorRect" type="ColorRect" parent="Visuals" unique_id=996910112]
-offset_right = 2000.0
-offset_bottom = 100.0
+offset_left = 2.0
+offset_top = 11.0
+offset_right = 2002.0
+offset_bottom = 111.0
 color = Color(0.8462826, 0.5661948, 0.14531782, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=2144399343]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision" unique_id=632853955]
-position = Vector2(999.75, 54)
+position = Vector2(999, 61)
 shape = SubResource("RectangleShape2D_h0mtm")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=612963395]
