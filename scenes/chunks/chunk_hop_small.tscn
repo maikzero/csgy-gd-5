@@ -6,12 +6,13 @@
 size = Vector2(808.5, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbf04"]
-size = Vector2(803, 43)
+size = Vector2(807.5, 43)
 
 [node name="chunk_hop_small" type="Node2D" unique_id=684014414]
 script = ExtResource("1_uuuhy")
 left_connection_height = 500.0
 right_connection_height = 463.0
+max_height_difference = 200.0
 metadata/_custom_type_script = "uid://dc8ccsclq82mw"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1181599090]
@@ -25,20 +26,20 @@ offset_bottom = 540.0
 metadata/_edit_use_anchors_ = true
 
 [node name="right" type="ColorRect" parent="Visuals" unique_id=1851492627]
-offset_left = 1207.0
-offset_top = 438.0
-offset_right = 2007.0
-offset_bottom = 488.0
+offset_left = 1203.0
+offset_top = 465.0
+offset_right = 2003.0
+offset_bottom = 515.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Collision" type="StaticBody2D" parent="." unique_id=2134097415]
 
 [node name="left" type="CollisionShape2D" parent="Collision" unique_id=628351393]
-position = Vector2(1612, 463)
+position = Vector2(1605, 490)
 shape = SubResource("RectangleShape2D_o4fbn")
 
 [node name="right" type="CollisionShape2D" parent="Collision" unique_id=1623362576]
-position = Vector2(410, 522)
+position = Vector2(406.25, 526)
 shape = SubResource("RectangleShape2D_bbf04")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=242613114]

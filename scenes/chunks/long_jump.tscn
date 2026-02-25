@@ -9,6 +9,7 @@ size = Vector2(506, 37)
 script = ExtResource("1_ctood")
 left_connection_height = 500.0
 right_connection_height = 500.0
+max_height_difference = 150.0
 metadata/_custom_type_script = "uid://dc8ccsclq82mw"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=2107080120]

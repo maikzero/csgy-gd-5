@@ -12,6 +12,7 @@ offset_bottom = 44.0
 color = Color(0.39723974, 0.39723974, 0.39723974, 1)
 
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=1118279618]
+visible = false
 offset_left = 28.0
 offset_top = 7.0
 offset_right = 61.0

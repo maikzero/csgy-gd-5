@@ -8,6 +8,7 @@ script = ExtResource("1_u00sm")
 chunk_name = "Small Hop"
 scene = ExtResource("1_64jes")
 difficulty = 2
+max_speed = 1000.0
 chunk_type = "Gap"
 requires_double_jump = true
 metadata/_custom_type_script = "uid://ckcq71v8b3nvc"
