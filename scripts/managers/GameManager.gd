@@ -10,6 +10,7 @@ extends Node
 var chunks_ahead = 3
 var chunks_behind = 2
 var chunk_width_estimate = 2000
+var death_line
 
 func _ready():
 	# Debug: Check if we found everything
@@ -33,7 +34,8 @@ func _ready():
 	# Generate initial chunks
 	print("Generating initial chunks...")
 	for i in chunks_ahead:
-		generate_chunk()
+		var new_chunk = generate_chunk()
+		death_line = new_chunk.global_position.y + 1500
 
 func _process(delta):
 	if not player or not world or not generator:
@@ -41,19 +43,20 @@ func _process(delta):
 	
 	# Check if we need more chunks
 	var player_x = player.global_position.x
+	var player_y = player.global_position.y
 	var farthest_x = get_farthest_chunk_x()
 	
 	# If player is getting close to the end, generate more
 	if player_x > farthest_x - (chunk_width_estimate * 1.5):
 		print("Generating new chunk - player at: ", player_x, ", farthest: ", farthest_x)
-		generate_chunk()
+		var new_chunk = generate_chunk()
+		death_line = max(death_line, new_chunk.global_position.y + 1500)
+	
+	if player_y > death_line:
+		player.die()
 	
 	# Clean up old chunks
 	cleanup_behind_player(player_x - (chunk_width_estimate * chunks_behind))
-	
-func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
 
 func generate_chunk():
 	if generator and player:
