@@ -6,9 +6,10 @@ class_name Coin
 signal collected(coin_value: int)
 
 # Export variables
-@export var value: int = 10
+@export var value: int = 10  # Base point value
+@export var health_value: int = 100  # HP restored
 @export var collect_sound: AudioStream
-@export var particle_effect: PackedScene
+#@export var particle_effect: PackedScened
 
 # Node references
 @onready var sprite = $Sprite2D
@@ -20,23 +21,30 @@ signal collected(coin_value: int)
 var is_collected: bool = false
 var float_tween: Tween
 
+
 func _ready():
 	# Connect the body_entered signal
 	body_entered.connect(_on_body_entered)
 	
 	# Start floating animation
 	start_floating_animation()
+	
+	# Add to group for easy finding
+	add_to_group("collectibles")
 
 func start_floating_animation():
-	# CORRECT WAY: Create a tween and chain methods properly
+	# Create floating animation
 	float_tween = create_tween()
 	float_tween.set_loops()  # loops indefinitely
 	float_tween.set_ease(Tween.EASE_IN_OUT)
 	float_tween.set_trans(Tween.TRANS_SINE)
 	
-	# Add the property animation to the tween
-	float_tween.tween_property(sprite, "position:y", sprite.position.y - 10, 1.0)
-	float_tween.tween_property(sprite, "position:y", sprite.position.y, 1.0)
+	# Store original Y position
+	var original_y = sprite.position.y
+	
+	# Float up and down
+	float_tween.tween_property(sprite, "position:y", original_y - 10, 1.0)
+	float_tween.tween_property(sprite, "position:y", original_y, 1.0)
 
 func _on_body_entered(body: Node):
 	if is_collected:
@@ -54,19 +62,28 @@ func collect(player: Node):
 		float_tween.kill()
 	
 	# Calculate score with speed multiplier
-	var final_value = value
+	var final_score = value
 	if player.has_method("get_score_multiplier"):
-		final_value = int(value * player.get_score_multiplier())
+		final_score = int(value * player.get_score_multiplier())
 	elif "score_multiplier" in player:
-		final_value = int(value * player.score_multiplier)
+		final_score = int(value * player.score_multiplier)
 	
 	# Add to game score
 	if has_node("/root/GameState"):
-		GameState.current_score += final_value
-		print("Coin collected! +", final_value, " points")
+		GameState.current_score += final_score
+		print("Coin collected! +", final_score, " points")
+	
+	# --- NEW: Give health to player ---
+	if player.has_method("collect_hp"):
+		player.collect_hp(health_value)
+		print("Coin gave +", health_value, " HP")
+	elif "health" in player:
+		# Direct health manipulation if no method
+		player.health = min(player.health + health_value, player.max_health)
+		print("Coin gave +", health_value, " HP (direct)")
 	
 	# Emit signal
-	collected.emit(final_value)
+	collected.emit(final_score)
 	
 	# Play effects
 	play_collect_effects()
@@ -84,9 +101,6 @@ func play_collect_effects():
 	if audio_player and collect_sound:
 		audio_player.stream = collect_sound
 		audio_player.play()
-	elif audio_player:
-		# Play default sound if available
-		pass
 	
 	# Play particles
 	if particles:

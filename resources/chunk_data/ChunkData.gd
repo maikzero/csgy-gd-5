@@ -12,7 +12,7 @@ class_name ChunkData
 # Difficulty and speed requirements
 @export_range(1, 5) var difficulty: int = 1
 @export var min_speed: float = 100.0
-@export var max_speed: float = 800.0
+@export var max_speed: float = 8000.0
 
 # Chunk type for categorization
 @export_enum("Platform", "Gap", "Enemy", "Bonus", "Obstacle", "MultiLevel") 

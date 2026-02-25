@@ -10,6 +10,8 @@ size = Vector2(804, 47)
 
 [node name="chunk_hop_small" type="Node2D" unique_id=684014414]
 script = ExtResource("1_uuuhy")
+left_connection_height = 532.0
+right_connection_height = 532.0
 metadata/_custom_type_script = "uid://dc8ccsclq82mw"
 
 [node name="Visuals" type="Node2D" parent="." unique_id=1181599090]
@@ -38,7 +40,21 @@ position = Vector2(406, 551.5)
 shape = SubResource("RectangleShape2D_bbf04")
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=242613114]
-position = Vector2(377, 457)
+
+[node name="Coin" type="Marker2D" parent="SpawnPoints" unique_id=1769543997]
+position = Vector2(863, 432)
+
+[node name="Coin2" type="Marker2D" parent="SpawnPoints" unique_id=341947996]
+position = Vector2(919, 408)
+
+[node name="Coin3" type="Marker2D" parent="SpawnPoints" unique_id=1061444957]
+position = Vector2(988, 398)
+
+[node name="Coin4" type="Marker2D" parent="SpawnPoints" unique_id=1836605621]
+position = Vector2(1056, 403)
+
+[node name="Coin5" type="Marker2D" parent="SpawnPoints" unique_id=96771589]
+position = Vector2(1137, 419)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1462830742]
 rect = Rect2(0, -500, 2000, 1000)

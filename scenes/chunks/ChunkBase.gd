@@ -12,6 +12,16 @@ signal player_entered_chunk(player: Node)
 @export var chunk_width: float = 2000.0
 @export var background_color: Color = Color.WHITE
 
+@export var left_connection_height: float = 200.0  # Height of exit point on left side
+@export var right_connection_height: float = 200.0  # Height of exit point on right side
+@export var connection_type: String = "ground"  # "ground", "platform", "air"
+# Optional: Allowed next chunk types
+@export var allowed_next_types: Array[String] = ["ground", "platform", "gap"]
+@export var forbidden_next_types: Array[String] = []
+
+# Height difference limits
+@export var max_height_difference: float = 400.0  # Maximum Y difference between chunks
+
 # Node references
 @onready var visuals = $Visuals
 @onready var collision = $Collision
@@ -130,6 +140,35 @@ func get_chunk_end_x() -> float:
 func is_player_inside(player_x: float) -> bool:
 	"""Check if player is within this chunk's bounds"""
 	return player_x >= get_chunk_start_x() and player_x <= get_chunk_end_x()
+	
+# Checks for right endpoint and left endpoint
+func get_right_exit_point() -> Vector2:
+	"""Get the point where the player exits this chunk"""
+	return Vector2(get_chunk_end_x(), right_connection_height)
+
+func get_left_enter_point() -> Vector2:
+	"""Get the point where the player should enter the next chunk"""
+	return Vector2(get_chunk_start_x(), left_connection_height)
+
+func can_connect_to(next_chunk: ChunkBase) -> bool:
+	"""Check if this chunk can connect to the next chunk"""
+	if not next_chunk:
+		return false
+	
+	# Check height difference
+	#var height_diff = abs(right_connection_height - next_chunk.left_connection_height)
+	var height_diff = next_chunk.left_connection_height - right_connection_height
+	if height_diff > max_height_difference:
+		return false
+	
+	# Check type compatibility
+	if next_chunk.connection_type in forbidden_next_types:
+		return false
+	
+	if allowed_next_types.size() > 0 and not next_chunk.connection_type in allowed_next_types:
+		return false
+	
+	return true
 
 # Optional: Visual debug in editor
 func _draw():

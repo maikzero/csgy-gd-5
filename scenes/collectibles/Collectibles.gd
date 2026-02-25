@@ -28,15 +28,3 @@ func _on_body_entered(body: Node):
 			$"/root/AudioPlayer".play_sound(collect_sound)
 		
 		queue_free()
-
-# Coin.gd (specific type)
-extends Collectible
-
-func _ready():
-	# Connect to parent handler
-	collected.connect(_on_collected)
-	super()
-
-func _on_collected(player: Player, amount: int):
-	var points = amount * player.current_speed / 100.0
-	GameState.current_score += int(points)

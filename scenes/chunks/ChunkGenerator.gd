@@ -85,6 +85,9 @@ func generate_chunk(player_speed: float = 100.0, player_health: float = 10.0) ->
 	# Use weighted selection
 	var selected = select_weighted_chunk(available)
 	
+	if is_first_chunk:
+		selected = available[0]
+	
 	if not selected:
 		push_error("Failed to select chunk!")
 		return null
