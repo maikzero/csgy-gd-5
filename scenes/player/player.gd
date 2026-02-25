@@ -27,6 +27,7 @@ var was_on_floor: bool = false
 signal health_changed(new_health: int)
 signal died()
 signal score_multiplier_changed(multiplier: float)
+signal speed_changed(current_speed: float)
 
 func _ready():
 	health = max_health
@@ -52,8 +53,10 @@ func _physics_process(delta: float):
 	# Speed management
 	if Input.is_action_pressed("move_right"):
 		current_speed = min(current_speed + acceleration * delta, max_speed)
+		speed_changed.emit(current_speed)
 	else:
 		current_speed = max(current_speed - deceleration * delta, base_speed)
+		speed_changed.emit(current_speed)
 	
 	# Apply horizontal movement
 	velocity.x = current_speed
