@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cao3xxp5bdnkr"]
 
 [ext_resource type="Script" uid="uid://neua73cirtj6" path="res://scenes/collectibles/coin.gd" id="1_hd0f5"]
-[ext_resource type="Texture2D" uid="uid://typdhboy7luf" path="res://icon.svg" id="2_3i6ca"]
+[ext_resource type="Texture2D" uid="uid://b6uusmawty13u" path="res://coin_spin-Sheet.png" id="2_3i6ca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_og610"]
 size = Vector2(59, 62)
@@ -14,6 +14,6 @@ position = Vector2(31.5, 33)
 shape = SubResource("RectangleShape2D_og610")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=148624081]
-position = Vector2(31, 33)
-scale = Vector2(0.5, 0.508)
+position = Vector2(29.999996, 34)
+scale = Vector2(0.74999994, 0.79999995)
 texture = ExtResource("2_3i6ca")
