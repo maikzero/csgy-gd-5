@@ -50,6 +50,10 @@ func _process(delta):
 	
 	# Clean up old chunks
 	cleanup_behind_player(player_x - (chunk_width_estimate * chunks_behind))
+	
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
 
 func generate_chunk():
 	if generator and player:
@@ -88,7 +92,3 @@ func _on_player_died():
 	print("Player died!")
 	if ui and ui.has_method("show_death_screen"):
 		ui.show_death_screen()
-	
-	# Restart after delay
-	await get_tree().create_timer(2.0).timeout
-	get_tree().reload_current_scene()

@@ -112,3 +112,6 @@ func test_ui():
 	_on_player_health_changed(7)
 	_on_player_speed_changed(350)
 	_on_multiplier_changed(3.5)
+	
+func show_death_screen():
+	add_child(load("res://scenes/ui/game_over.tscn").instantiate())

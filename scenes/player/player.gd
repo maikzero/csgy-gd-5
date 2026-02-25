@@ -81,6 +81,10 @@ func _physics_process(delta: float):
 		double_jumps_remaining = 1
 	
 	was_on_floor = is_on_floor()
+	
+func _unhandled_input(event: InputEvent):
+	if event.is_action_pressed("die"):
+		die()
 
 func collect_hp(amount: int):
 	health = min(health + amount, max_health)
